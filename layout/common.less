@@ -1,0 +1,51 @@
+/* Украшательства */
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+div {
+  outline: 1px solid black;
+}
+
+#popups {
+  .popup {
+    background: blueviolet;
+    text-align: center;
+
+    .close {
+      outline: none;
+      background-color: inherit;
+      display: inline-block;
+      position: absolute;
+      top: -0.5em;
+      right: -0.5em;
+      border: 1px solid black;
+      border-radius: 1em;
+      width: 2em;
+      height: 2em;
+      text-align: center;
+      line-height: 2em;
+    }
+  }
+}
+
+#board {
+  background-color: cornflowerblue;
+
+  .row > * {
+    color: yellow;
+    background-color: blue;
+    text-align: center;
+  }
+}
+
+#menu {
+  background: orange;
+
+  & > * {
+    background: red;
+    text-align: center;
+  }
+}

@@ -1,0 +1,67 @@
+/**
+ * Отключаем bounce эффект на iOS ценой отключения скролла вообще.
+ */
+html, body {
+  position        : fixed;
+  overflow        : hidden;
+  width           : 100%;
+  height          : 100%;
+}
+
+@maxSafeZIndex: 16777271;
+
+/**
+ * Разрешаем быстрые тапы на iOS Safari.
+ */
+body {
+  touch-action    : manipulation;
+}
+
+#board  { z-index: 0              };
+#menu   { z-index: 1              };
+#popups { z-index: @maxSafeZIndex };
+
+#app {
+
+  #popups {
+    height   : 0;
+    position : absolute;
+    top      : 0;
+    left     : 0;
+    right    : 0;
+
+    .mask {
+      display           : none;
+      position          : fixed;
+      top               : 0;
+      bottom            : 0;
+      left              : 0;
+      right             : 0;
+      background-color  : black;
+      opacity           : 0.5;
+
+      &.visible {
+        display : inline-block;
+      }
+    }
+
+    .popup {
+      display  : none;
+      position : fixed;
+      top      : 0;
+      bottom   : 0;
+      left     : 0;
+      right    : 0;
+
+      &.visible {
+        display : block;
+      }
+    }
+  }
+}
+
+@MODE-0: ~'screen and (max-aspect-ratio: 3/4)';
+@MODE-1: ~'screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 175/128)';
+@MODE-2: ~'screen and (min-aspect-ratio: 175/128)';
+
+@btnCount: 6;

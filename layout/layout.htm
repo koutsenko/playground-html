@@ -1,0 +1,85 @@
+﻿<html>
+<head>
+  <link rel="stylesheet/less" type="text/css" href="layout-0.less">
+  <link rel="stylesheet/less" type="text/css" href="layout-1.less">
+  <link rel="stylesheet/less" type="text/css" href="layout-2.less">
+  <link rel="stylesheet/less" type="text/css" href="layout-common.less">
+  <link rel="stylesheet/less" type="text/css" href="common.less">
+  <script type="text/javascript" src="less.js"></script>
+</head>
+<script src="//cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.3.5/mobile-detect.min.js"></script>
+<script>
+  var openPopup = function(event) {
+    if (event.target.parentElement.className !== 'row' && event.target.parentElement.id !== 'menu') {
+      return;
+    }
+
+    document.body.querySelector('.mask').className = 'mask visible';
+    var elements = document.body.querySelectorAll('.popup');
+    var random = Math.floor(Math.random()*elements.length);
+    var item = elements[random];
+    item.className = 'popup visible';
+  };
+
+  var closePopup = function(event, number) {
+    document.body.querySelector('.mask').className = 'mask';
+    event.currentTarget.parentElement.className = 'popup';
+    event.stopPropagation();
+  };
+</script>
+<body onclick="openPopup(event)">
+  <div id="detect" style="position: fixed; top: 50%; text-align: center; width: 100%; pointer-events: none;">
+    <div id="result" style="display: inline-block; background-color: yellow">
+    </div>
+  </div>
+  <div id="root">
+    <div id="app">
+      <div id="board">
+        <div class="row">
+          <div class="deck">    deck    </div>
+          <div class="open">    open    </div>
+          <div class="stat">    time    </div>
+          <div class="home1">   home    </div>
+          <div class="home2">   home    </div>
+          <div class="home3">   home    </div>
+          <div class="home4">   home    </div>
+        </div>
+        <div class="row">
+          <div class="stack1">  stack   </div>
+          <div class="stack2">  stack   </div>
+          <div class="stack3">  stack   </div>
+          <div class="stack4">  stack   </div>
+          <div class="stack5">  stack   </div>
+          <div class="stack6">  stack   </div>
+          <div class="stack7">  stack   </div>
+        </div>
+      </div>
+      <div id="menu">
+        <div class="btn1">    button  </div>
+        <div class="btn2">    button  </div>
+        <div class="btn3">    button  </div>
+        <div class="btn4">    button  </div>
+        <div class="btn5">    button  </div>
+      </div>
+      <div id="popups">
+        <div class="mask"></div>
+        <div class="popup">
+          <h1>RANDOM WINDOW OPENED, CONTENT N1</h1>
+          <div class="close" onclick="closePopup(event, 1)">X</div>
+        </div>
+        <div class="popup">
+          <h1>RANDOM WINDOW OPENED, CONTENT N2</h1>
+          <div class="close" onclick="closePopup(event, 2)">X</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var md = new MobileDetect(window.navigator.userAgent);
+    var phone = md.phone();
+    var description = phone || 'не обнаружено';
+
+    document.querySelector('#result').innerHTML = 'debug1: Маленький экран (телефон): ' + description;
+</script>
+</body>
+</html>

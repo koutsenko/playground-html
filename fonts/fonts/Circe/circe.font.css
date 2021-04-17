@@ -1,0 +1,31 @@
+/* Circe ExtraLight */
+@font-face {
+  font-family: "Circe";
+  src: url("Circe-ExtraLight.woff") format("woff");
+  font-style: normal;
+  font-weight: 100;
+}
+
+/* Circe Light */
+@font-face {
+  font-family: "Circe";
+  src: url("Circe-Light.woff") format("woff");
+  font-style: normal;
+  font-weight: 300;
+}
+
+/* Circe Regular */
+@font-face {
+  font-family: "Circe";
+  src: url("Circe-Regular.woff") format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* Circe Bold */
+@font-face {
+  font-family: "Circe";
+  src: url("Circe-Bold.woff") format("woff");
+  font-style: normal;
+  font-weight: bold;
+}
